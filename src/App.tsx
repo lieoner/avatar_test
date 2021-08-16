@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { ColoredUserpic } from './components/ui/ColoredUserpic';
+import img from './assets/chiller.png';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className='App'>
+            <ColoredUserpic
+                size={150}
+                src={img}
+                margin={4}
+                backgroundColor='red'
+                colors={['green', 'blue']}
+                hoverColors={['blue', 'green']}
+                colorWidth={6}
+            />
+        </div>
+    );
 }
 
 export default App;
