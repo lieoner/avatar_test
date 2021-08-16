@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 
 interface Props {
     src: string;
@@ -42,9 +42,10 @@ export const ColoredUserpic: FC<Props> = ({
         width: '100%',
         borderRadius: (size / 2).toFixed(0) + 'px',
     };
-    const toggleGradient = () => {
+
+    const toggleHovered = useCallback(() => {
         setIsHovered(!isHovered);
-    };
+    }, [isHovered]);
 
     return (
         <div
@@ -56,10 +57,10 @@ export const ColoredUserpic: FC<Props> = ({
                     : `linear-gradient(to right, ${hoverColors[0]}, ${hoverColors[1]})`,
             }}
             onMouseEnter={() => {
-                toggleGradient();
+                toggleHovered();
             }}
             onMouseLeave={() => {
-                toggleGradient();
+                toggleHovered();
             }}
         >
             <div className='avatar' style={avatar}>
