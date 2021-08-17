@@ -26,21 +26,31 @@ export const ColoredUserpic: FC<Props> = ({
         height: size,
         display: 'flex',
         overflow: 'hidden',
-        borderRadius: (size / 2).toFixed(0) + 'px',
+        borderRadius: '50%',
     };
 
     const avatar = {
-        backgroundColor: backgroundColor,
         flex: 1,
+        backgroundColor: backgroundColor,
         margin: margin,
-        borderRadius: (size / 2).toFixed(0) + 'px',
-        overflow: 'hidden',
         padding: colorWidth,
+        overflow: 'hidden',
+        borderRadius: '50%',
     };
-    const avatarPicture = {
+
+    const avatarWrapper = {
         height: '100%',
         width: '100%',
-        borderRadius: (size / 2).toFixed(0) + 'px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
+        borderRadius: '50%',
+    };
+
+    const avatarImage = {
+        height: '100%',
+        width: 'auto',
     };
 
     const toggleHovered = useCallback(() => {
@@ -64,7 +74,9 @@ export const ColoredUserpic: FC<Props> = ({
             }}
         >
             <div className='avatar' style={avatar}>
-                <img src={src} alt='avatar' style={avatarPicture} />
+                <div className='avatarWrapper' style={avatarWrapper}>
+                    <img src={src} alt='avatar' style={avatarImage} />
+                </div>
             </div>
         </div>
     );
