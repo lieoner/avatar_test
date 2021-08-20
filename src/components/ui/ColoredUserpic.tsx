@@ -32,8 +32,8 @@ export const ColoredUserpic: FC<Props> = ({
     const avatar = {
         flex: 1,
         backgroundColor: backgroundColor,
-        margin: margin,
         padding: colorWidth,
+        margin: margin,
         overflow: 'hidden',
         borderRadius: '50%',
     };
@@ -63,8 +63,12 @@ export const ColoredUserpic: FC<Props> = ({
             style={{
                 ...container,
                 backgroundImage: !isHovered
-                    ? `linear-gradient(to right, ${colors[0]}, ${colors[1]})`
-                    : `linear-gradient(to right, ${hoverColors[0]}, ${hoverColors[1]})`,
+                    ? `linear-gradient(to right, ${colors.map((el) => {
+                          return el;
+                      })})`
+                    : `linear-gradient(to right, ${hoverColors.map((el) => {
+                          return el;
+                      })})`,
             }}
             onMouseEnter={() => {
                 toggleHovered();
